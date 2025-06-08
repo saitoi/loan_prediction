@@ -1,0 +1,36 @@
+Column Name,Description,API Field Name,Data Type
+End of Period,End of Period Date represents the date as of which balances are shown in the report.,end_of_period,DATE
+Loan Number,"For IBRD, a loan number consists of the organization prefix (IBRD) and a five-character label that uniquely identifies the loan within the organization.  IDs starting with IBRDB and IBRDG are ""Guarantees"" and the rest are ""Loans"".",loan_number,STRING
+Region,World Bank Region to which country / economy and loan belong. Country / Economy lending is grouped into regions based on the current World Bank administrative (rather than geographic) region where project implementation takes place. The Other Region is used for loans to IFC.,region,STRING
+Country / Economy Code,Country / Economy Code according to the World Bank country / economy list. Might be different from the ISO country / economy code.,country_code,STRING
+Country / Economy,Country / Economy to which loan has been issued. Loans to the IFC are included under the country / economy “World”.,country,STRING
+Borrower,The representative of the borrower to which the Bank loan is made. ,borrower,STRING
+Guarantor Country / Economy Code,Country / Economy Code of the Guarantor according to the World Bank country / economy list. Might be different from the ISO country / economy code.,guarantor_country_code,STRING
+Guarantor,The Guarantor guarantees repayment to the Bank if the borrower does not repay. ,guarantor,STRING
+Loan Type,A type of loan/loan instrument for which distinctive accounting and/or other actions need to be performed.  Please refer to the dataset description for the full form of loan type.,loan_type,STRING
+Loan Status,Status of the loan.  ,loan_status,STRING
+Interest Rate,"Current Interest rate or service charge applied to loan.  For loans that could have more than one interest rate (e.g. FSL or SCL fixed rate loans), the interest rate is shown as “0”. ",interest_rate,NUMBER
+Currency of Commitment,"The currency in which a borrower’s loan, credit or grant is denominated.",currency_of_commitment,STRING
+Project ID,"A Bank project is referenced by a project ID (Pxxxxxxx).  More than one loan, credit, or grant may be associated with one Project ID. ",project_id,STRING
+Project Name,Short descriptive project name.,project_name,STRING
+Original Principal Amount (US$),The original US dollar amount of the loan that is committed and approved. ,original_principal_amount,NUMBER
+Cancelled Amount (US$),The portion of the undisbursed balance which has been cancelled (i.e. no longer available for future disbursement).  Cancellations include terminations (where approved loan agreements were never signed).,cancelled_amount,NUMBER
+Undisbursed Amount (US$),The amount of a loan commitment that is still available to be drawn down. These currency amounts have been converted to US dollars at the exchange rates applicable at the End of Period date. ,undisbursed_amount,NUMBER
+Disbursed Amount (US$),The amount that has been disbursed from a loan commitment in equivalent US dollars calculated at the exchange rate on the value date of the individual disbursements.,disbursed_amount,NUMBER
+Repaid to IBRD (US$),"Total principal amounts paid or prepaid to IBRD in US dollars, calculated at the exchange rate on the value date of the individual repayments.",repaid_to_ibrd,NUMBER
+Due to IBRD (US$),"Where the exchange adjustment is shown separately, this is the amount disbursed and outstanding expressed as a stock of debt in historical US Dollars.   Otherwise, this is the amount due and outstanding as of the End of Period date.",due_to_ibrd,NUMBER
+Exchange Adjustment (US$),The increase (decrease) in value of disbursed and outstanding amount due to exchange rate fluctuations.  This amount added to “Due to IBRD” yields “Borrower’s Obligation; includes exchange adjustments on the amounts Due to 3rd parties.,exchange_adjustment,NUMBER
+Borrower's Obligation (US$),"The Borrower Obligation is the outstanding balance for the loan as of the end of period date in US dollars equivalent. 
+
+The Borrower's Obligation includes the amounts outstanding Due to 3rd parties.",borrowers_obligation,NUMBER
+Sold 3rd Party (US$),Portion of loan sold to a third party.,sold_3rd_party,NUMBER
+Repaid 3rd Party (US$),Amount repaid to a third party.,repaid_3rd_party,NUMBER
+Due 3rd Party (US$),Amount due to a third party.,due_3rd_party,NUMBER
+Loans Held (US$),"The sum of the disbursed and outstanding amounts (net of repayments, i.e.  Due to IBRD) plus undisbursed available amounts.",loans_held,NUMBER
+First Repayment Date,The date on which principal repayment starts.,first_repayment_date,DATE
+Last Repayment Date,The date specified in the loan/credit agreement (amended for any partial prepayments) on which the last principal installment must be repaid by the Borrower.,last_repayment_date,DATE
+Agreement Signing Date,The date the borrower and the Bank sign the loan agreement.,agreement_signing_date,DATE
+Board Approval Date,The date the World Bank approves the loan. ,board_approval_date,DATE
+Effective Date (Most Recent),"The date on which a legal agreement becomes effective, or is expected to become effective.",effective_date_most_recent,DATE
+Closed Date (Most Recent),"The date specified in the legal agreement (or extension) after which the Bank may, by notice to the borrower, terminate the right to make withdrawals from the loan account.",closed_date_most_recent,DATE
+Last Disbursement Date,The date on which the last disbursement was made (prior to the end of period date).,last_disbursement_date,DATE
