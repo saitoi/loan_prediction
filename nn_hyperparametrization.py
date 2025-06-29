@@ -68,7 +68,7 @@ def hyperparameter_tuning_cv():
 
         # Grid search com validação cruzada interna (3-fold para rapidez)
         grid_search = GridSearchCV(
-            MLPClassifier(random_state=42),
+            MLPClassifier(max_iter=2_000, random_state=42),
             param_grid,
             cv=3,
             scoring='f1_weighted',
@@ -206,9 +206,9 @@ if __name__ == "__main__":
     print("="*50)
 
     baseline_results = evaluate_fixed_params({
-        'kernel': 'rbf',
-        'C': 1.0,
-        'gamma': 'scale'
+        'solver': 'adam',
+        'hidden_layer_sizes': (75, 75),
+        'activation': 'logistic'
     })
 
     # Análise de melhoria
