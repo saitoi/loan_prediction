@@ -45,10 +45,10 @@ def hyperparameter_tuning_cv():
 
     # Parâmetros para grid search
     param_grid = {
-        'hidden_layer_sizes': [(75, 75), (100), (100, 100), (200)],
-        'solver': ['adam', 'sgd', 'lbfgs'],
-        'activation': ['relu', 'tanh',  'logistic'],
-        'alpha': [0.0001, 0.001, 0.01],
+        'hidden_layer_sizes': [(75, 75), (100), (200)],
+        'solver': ['sgd', 'adam'],
+        'activation': ['relu', 'tanh', 'logistic'],
+        'alpha': [0.0001, 0.001],
         'learning_rate_init': [0.001, 0.01],
     }
 
@@ -68,7 +68,7 @@ def hyperparameter_tuning_cv():
 
         # Grid search com validação cruzada interna (3-fold para rapidez)
         grid_search = GridSearchCV(
-            MLPClassifier(max_iter=2_000, random_state=42),
+            MLPClassifier(max_iter=200, random_state=42),
             param_grid,
             cv=3,
             scoring='f1_weighted',
