@@ -205,3 +205,45 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Adicionar ao final do .gitignore existente
+
+# Machine Learning specific
+*.joblib
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.onnx
+models/saved_models/
+checkpoints/
+tensorboard_logs/
+mlruns/
+.mlflow/
+wandb/
+
+# Large datasets (caso tenham arquivos grandes)
+*.parquet
+*.feather
+data/raw/large_datasets/
+data/external/
+
+# Model artifacts and experiments
+experiments/
+model_outputs/
+predictions/
+feature_importance/
+plots/
+figures/
+
+# Jupyter Notebook outputs (opcional - alguns preferem commitar)
+# *.ipynb
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
