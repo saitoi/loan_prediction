@@ -15,7 +15,6 @@ import pandas as pd
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV, cross_val_score
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, f1_score
-from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import seaborn as sns
 from collections import defaultdict
@@ -59,9 +58,9 @@ def hyperparameter_tuning_cv():
         y_test = y[test_idx]
         
         # Normalização
-        scaler = StandardScaler()
-        X_train_scaled = scaler.fit_transform(X_train)
-        X_test_scaled = scaler.transform(X_test)
+        # scaler = StandardScaler()
+        # X_train_scaled = scaler.fit_transform(X_train)
+        # X_test_scaled = scaler.transform(X_test)
         
         # Grid search com validação cruzada interna (3-fold para rapidez)
         grid_search = GridSearchCV(
@@ -72,11 +71,11 @@ def hyperparameter_tuning_cv():
             n_jobs=-1
         )
         
-        grid_search.fit(X_train_scaled, y_train)
+        grid_search.fit(X_train, y_train)
         
         # Testa melhor modelo no fold atual
         best_model = grid_search.best_estimator_
-        y_pred = best_model.predict(X_test_scaled)
+        y_pred = best_model.predict(X_test)
         
         acc = accuracy_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred, average='weighted')
@@ -139,9 +138,9 @@ def evaluate_fixed_params(params):
         y_test = y[test_idx]
         
         # Normalização
-        scaler = StandardScaler()
-        X_train_scaled = scaler.fit_transform(X_train)
-        X_test_scaled = scaler.transform(X_test)
+        # scaler = StandardScaler()
+        # X_train_scaled = scaler.fit_transform(X_train)
+        # X_test_scaled = scaler.transform(X_test)
         
         # Treina modelo
         model = SVC(
@@ -149,8 +148,8 @@ def evaluate_fixed_params(params):
             class_weight='balanced',
             random_state=42
         )
-        model.fit(X_train_scaled, y_train)
-        y_pred = model.predict(X_test_scaled)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
         
         # Métricas
         acc = accuracy_score(y_test, y_pred)
