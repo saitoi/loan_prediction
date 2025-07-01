@@ -48,16 +48,26 @@ def hyperparameter_tuning_cv():
     """
     print("\n" + "="*50)
     print("HYPERPARAMETER TUNING COM CROSS-VALIDATION")
-    print("="*50)
+    print("="*50, flush=True)
 
     # Parâmetros para grid search
     # changeme
     param_grid = {
-        'hidden_layer_sizes': [(75, 75), (100), (200)],
+        'hidden_layer_sizes': [
+            (75, 75),
+            (100,),
+            (50, 50),
+            (100, 50)
+        ],
+        'activation': ['relu', 'tanh'],
         'solver': ['adam', 'sgd'],
-        'activation': ['logistic', 'relu', 'tanh'],
-        'alpha': [0.0001, 0.001],
+        'alpha': [1e-4, 1e-3, 1e-2],
         'learning_rate_init': [0.001, 0.01],
+        # 'hidden_layer_sizes': [(75, 75), (100, 100), ],
+        # 'solver': ['adam'],
+        # 'activation': ['logistic'],
+        # 'alpha': [0.001],
+        # 'learning_rate_init': [0.01],
     }
 
     # Resultados por configuração
@@ -79,11 +89,11 @@ def hyperparameter_tuning_cv():
 
         # Grid search com validação cruzada interna (3-fold para rapidez)
         grid_search = GridSearchCV(
-            MLPClassifier(max_iter=200, random_state=42),
+            MLPClassifier(max_iter=1000, random_state=42),
             param_grid,
             cv=3,
             scoring='f1_weighted',
-            n_jobs=-1
+            n_jobs=-1,
         )
 
         # Iniciando Contagem do tempo de GridSearch no Fold
@@ -111,8 +121,8 @@ def hyperparameter_tuning_cv():
             'params': grid_search.best_params_
         })
 
-        print(f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Best params: {grid_search.best_params_}")
-        print(f"Tempo: {elapsed_time_gridsearch[0]}min {elapsed_time_gridsearch[1]:.2f}s")
+        print(f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Best params: {grid_search.best_params_}", flush=True)
+        print(f"Tempo: {elapsed_time_gridsearch[0]}min {elapsed_time_gridsearch[1]:.2f}s", flush=True)
 
     # Tempo total de Busca da melhor parametrização
     elapsed_time_bestparam_search = elapsed_time_min_sec(time.perf_counter(),
@@ -140,7 +150,7 @@ def hyperparameter_tuning_cv():
     print(f"Apareceu em {best_config[1]['count']}/30 folds")
     print(f"Accuracy: {best_config[1]['mean_accuracy']:.4f} ± {best_config[1]['std_accuracy']:.4f}")
     print(f"F1-Score: {best_config[1]['mean_f1']:.4f} ± {best_config[1]['std_f1']:.4f}")
-    print(f"Tempo Total de Busca: {elapsed_time_bestparam_search[0]}min {elapsed_time_bestparam_search[1]:.2f}s")
+    print(f"Tempo Total de Busca: {elapsed_time_bestparam_search[0]}min {elapsed_time_bestparam_search[1]:.2f}s", flush=True)
 
     return best_config[1]['params']
 
@@ -152,7 +162,7 @@ def evaluate_fixed_params(params):
     """
     print(f"\n" + "="*50)
     print("AVALIAÇÃO COM PARÂMETROS OTIMIZADOS")
-    print("="*50)
+    print("="*50, flush=True)
 
     results = []
     all_y_true = []
@@ -174,8 +184,8 @@ def evaluate_fixed_params(params):
         # changeme
         model = MLPClassifier(
             **params,
-            max_iter=200,
-            random_state=42
+            max_iter=1000,
+            random_state=42,
         )
 
         start_training_fit = time.perf_counter()
@@ -193,7 +203,7 @@ def evaluate_fixed_params(params):
         all_y_true.extend(y_test)
         all_y_pred.extend(y_pred)
 
-        print(f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Time: {elapsed_time_fit[0]}min {elapsed_time_fit[1]:.2f}s")
+        print(f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Time: {elapsed_time_fit[0]}min {elapsed_time_fit[1]:.2f}s", flush=True)
 
     elapsed_evaluation_time = elapsed_time_min_sec(time.perf_counter(),
                                                    start_evaluation_time)
@@ -205,7 +215,7 @@ def evaluate_fixed_params(params):
     print(f"Accuracy: {np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}")
     print(f"F1-Score: {np.mean(f1_scores):.4f} ± {np.std(f1_scores):.4f}")
     print(f"Melhor Acc: {np.max(accuracies):.4f} | Pior Acc: {np.min(accuracies):.4f}")
-    print(f"Tempo de Avaliação: {elapsed_evaluation_time[0]}min {elapsed_evaluation_time[1]:.2f}s")
+    print(f"Tempo de Avaliação: {elapsed_evaluation_time[0]}min {elapsed_evaluation_time[1]:.2f}s", flush=True)
 
     # Relatório global
     print(f"\n=== MÉTRICAS GLOBAIS ===")
@@ -243,9 +253,11 @@ if __name__ == "__main__":
 
     # changeme
     baseline_results = evaluate_fixed_params({
-        'solver': 'adam',
-        'hidden_layer_sizes': (75, 75),
-        'activation': 'logistic'
+        'activation': 'tanh',
+        'alpha': 0.001,
+        'hidden_layer_sizes': 100,
+        'learning_rate_init': 0.01,
+        'solver': 'adam'
     })
 
     # Análise de melhoria
