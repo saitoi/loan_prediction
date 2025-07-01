@@ -1,0 +1,6 @@
+Dataset shape: (6945, 11)
+Class distribution: [2749 4196] (proporção: [0.39582433 0.60417567])
+
+==================================================
+HYPERPARAMETER TUNING COM CROSS-VALIDATION
+==================================================
