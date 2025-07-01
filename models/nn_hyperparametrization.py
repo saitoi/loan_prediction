@@ -23,7 +23,7 @@ from collections import defaultdict
 import time
 
 # Carrega dados
-df = pd.read_csv("df_final.csv")
+df = pd.read_csv("../data/processed/df_final.csv")
 y = df["last_loan_status"].values
 X = df.drop(columns=["last_loan_status"])
 
@@ -32,7 +32,9 @@ with open("splits.pkl", "rb") as f:
     splits = pickle.load(f)
 
 print(f"Dataset shape: {X.shape}")
-print(f"Class distribution: {np.bincount(y)} (proporção: {np.bincount(y)/len(y)})")
+print(
+    f"Class distribution: {np.bincount(y)} (proporção: {np.bincount(y)/len(y)})")
+
 
 def elapsed_time_min_sec(end, start):
     elapsed_time = end - start
@@ -41,6 +43,7 @@ def elapsed_time_min_sec(end, start):
     return min, sec
 
 # ====== ABORDAGEM 1: HYPERPARAMETER TUNING + CV ======
+
 
 def hyperparameter_tuning_cv():
     """
@@ -111,8 +114,10 @@ def hyperparameter_tuning_cv():
             'params': grid_search.best_params_
         })
 
-        print(f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Best params: {grid_search.best_params_}")
-        print(f"Tempo: {elapsed_time_gridsearch[0]}min {elapsed_time_gridsearch[1]:.2f}s")
+        print(
+            f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Best params: {grid_search.best_params_}")
+        print(
+            f"Tempo: {elapsed_time_gridsearch[0]}min {elapsed_time_gridsearch[1]:.2f}s")
 
     # Tempo total de Busca da melhor parametrização
     elapsed_time_bestparam_search = elapsed_time_min_sec(time.perf_counter(),
@@ -138,13 +143,17 @@ def hyperparameter_tuning_cv():
     print(f"\n=== MELHOR CONFIGURAÇÃO ===")
     print(f"Parâmetros: {best_config[1]['params']}")
     print(f"Apareceu em {best_config[1]['count']}/30 folds")
-    print(f"Accuracy: {best_config[1]['mean_accuracy']:.4f} ± {best_config[1]['std_accuracy']:.4f}")
-    print(f"F1-Score: {best_config[1]['mean_f1']:.4f} ± {best_config[1]['std_f1']:.4f}")
-    print(f"Tempo Total de Busca: {elapsed_time_bestparam_search[0]}min {elapsed_time_bestparam_search[1]:.2f}s")
+    print(
+        f"Accuracy: {best_config[1]['mean_accuracy']:.4f} ± {best_config[1]['std_accuracy']:.4f}")
+    print(
+        f"F1-Score: {best_config[1]['mean_f1']:.4f} ± {best_config[1]['std_f1']:.4f}")
+    print(
+        f"Tempo Total de Busca: {elapsed_time_bestparam_search[0]}min {elapsed_time_bestparam_search[1]:.2f}s")
 
     return best_config[1]['params']
 
 # ====== ABORDAGEM 2: AVALIAÇÃO COM PARÂMETROS FIXOS ======
+
 
 def evaluate_fixed_params(params):
     """
@@ -193,7 +202,8 @@ def evaluate_fixed_params(params):
         all_y_true.extend(y_test)
         all_y_pred.extend(y_pred)
 
-        print(f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Time: {elapsed_time_fit[0]}min {elapsed_time_fit[1]:.2f}s")
+        print(
+            f"Fold {fold:02d}: Acc={acc:.4f}, F1={f1:.4f}, Time: {elapsed_time_fit[0]}min {elapsed_time_fit[1]:.2f}s")
 
     elapsed_evaluation_time = elapsed_time_min_sec(time.perf_counter(),
                                                    start_evaluation_time)
@@ -204,8 +214,10 @@ def evaluate_fixed_params(params):
     print(f"\n=== RESUMO 30-FOLDS ===")
     print(f"Accuracy: {np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}")
     print(f"F1-Score: {np.mean(f1_scores):.4f} ± {np.std(f1_scores):.4f}")
-    print(f"Melhor Acc: {np.max(accuracies):.4f} | Pior Acc: {np.min(accuracies):.4f}")
-    print(f"Tempo de Avaliação: {elapsed_evaluation_time[0]}min {elapsed_evaluation_time[1]:.2f}s")
+    print(
+        f"Melhor Acc: {np.max(accuracies):.4f} | Pior Acc: {np.min(accuracies):.4f}")
+    print(
+        f"Tempo de Avaliação: {elapsed_evaluation_time[0]}min {elapsed_evaluation_time[1]:.2f}s")
 
     # Relatório global
     print(f"\n=== MÉTRICAS GLOBAIS ===")
@@ -226,6 +238,7 @@ def evaluate_fixed_params(params):
     return results
 
 # ====== EXECUÇÃO ======
+
 
 if __name__ == "__main__":
     start_exec = time.perf_counter()
@@ -256,4 +269,5 @@ if __name__ == "__main__":
     print(f"\nMelhoria do F1-Score: {improvement:.2f}%")
     elapsef_exec_time = elapsed_time_min_sec(time.perf_counter(),
                                              start_exec)
-    print(f"Tempo Total de Execução: {elapsef_exec_time[0]}min {elapsef_exec_time[1]:.2f}s")
+    print(
+        f"Tempo Total de Execução: {elapsef_exec_time[0]}min {elapsef_exec_time[1]:.2f}s")
