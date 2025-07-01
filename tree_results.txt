@@ -1,0 +1,182 @@
+Dataset shape: (6945, 11)
+Class distribution: [2749 4196] (proporção: [0.39582433 0.60417567])
+
+==================================================
+HYPERPARAMETER TUNING COM CROSS-VALIDATION
+==================================================
+Fold 01: Acc=0.9554, F1=0.9555, Best params: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+Tempo: 0min 1.54s
+Fold 02: Acc=0.9618, F1=0.9618, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 03: Acc=0.9554, F1=0.9553, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 04: Acc=0.9662, F1=0.9661, Best params: {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 05: Acc=0.9770, F1=0.9769, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.12s
+Fold 06: Acc=0.9510, F1=0.9511, Best params: {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.12s
+Fold 07: Acc=0.9611, F1=0.9610, Best params: {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 5}
+Tempo: 0min 0.12s
+Fold 08: Acc=0.9597, F1=0.9596, Best params: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+Tempo: 0min 0.13s
+Fold 09: Acc=0.9654, F1=0.9655, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+Tempo: 0min 0.19s
+Fold 10: Acc=0.9618, F1=0.9619, Best params: {'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 10}
+Tempo: 0min 0.12s
+Fold 11: Acc=0.9554, F1=0.9553, Best params: {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+Tempo: 0min 0.12s
+Fold 12: Acc=0.9647, F1=0.9647, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.13s
+Fold 13: Acc=0.9618, F1=0.9618, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 14: Acc=0.9618, F1=0.9618, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 15: Acc=0.9604, F1=0.9605, Best params: {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 16: Acc=0.9618, F1=0.9620, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.13s
+Fold 17: Acc=0.9719, F1=0.9719, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.18s
+Fold 18: Acc=0.9654, F1=0.9654, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+Tempo: 0min 0.12s
+Fold 19: Acc=0.9640, F1=0.9640, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.12s
+Fold 20: Acc=0.9510, F1=0.9510, Best params: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 21: Acc=0.9676, F1=0.9676, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.12s
+Fold 22: Acc=0.9568, F1=0.9567, Best params: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+Tempo: 0min 0.13s
+Fold 23: Acc=0.9654, F1=0.9655, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+Tempo: 0min 0.12s
+Fold 24: Acc=0.9604, F1=0.9604, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+Tempo: 0min 0.13s
+Fold 25: Acc=0.9590, F1=0.9591, Best params: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+Tempo: 0min 0.21s
+Fold 26: Acc=0.9626, F1=0.9625, Best params: {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+Tempo: 0min 0.13s
+Fold 27: Acc=0.9575, F1=0.9576, Best params: {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 10}
+Tempo: 0min 0.12s
+Fold 28: Acc=0.9604, F1=0.9605, Best params: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Tempo: 0min 0.13s
+Fold 29: Acc=0.9546, F1=0.9546, Best params: {'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 5}
+Tempo: 0min 0.12s
+Fold 30: Acc=0.9726, F1=0.9726, Best params: {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 10}
+Tempo: 0min 0.12s
+
+=== MELHOR CONFIGURAÇÃO ===
+Parâmetros: {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}
+Apareceu em 7/30 folds
+Accuracy: 0.9668 ± 0.0054
+F1-Score: 0.9668 ± 0.0054
+Tempo Total de Busca: 0min 5.44s
+
+==================================================
+AVALIAÇÃO COM PARÂMETROS OTIMIZADOS
+==================================================
+Fold 01: Acc=0.9597, F1=0.9598, Time: 0min 0.01s
+Fold 02: Acc=0.9633, F1=0.9633, Time: 0min 0.01s
+Fold 03: Acc=0.9568, F1=0.9568, Time: 0min 0.01s
+Fold 04: Acc=0.9561, F1=0.9561, Time: 0min 0.01s
+Fold 05: Acc=0.9770, F1=0.9769, Time: 0min 0.01s
+Fold 06: Acc=0.9539, F1=0.9539, Time: 0min 0.01s
+Fold 07: Acc=0.9654, F1=0.9654, Time: 0min 0.01s
+Fold 08: Acc=0.9618, F1=0.9618, Time: 0min 0.01s
+Fold 09: Acc=0.9640, F1=0.9641, Time: 0min 0.01s
+Fold 10: Acc=0.9662, F1=0.9661, Time: 0min 0.01s
+Fold 11: Acc=0.9633, F1=0.9632, Time: 0min 0.01s
+Fold 12: Acc=0.9647, F1=0.9647, Time: 0min 0.01s
+Fold 13: Acc=0.9640, F1=0.9640, Time: 0min 0.01s
+Fold 14: Acc=0.9618, F1=0.9619, Time: 0min 0.01s
+Fold 15: Acc=0.9618, F1=0.9619, Time: 0min 0.01s
+Fold 16: Acc=0.9618, F1=0.9620, Time: 0min 0.01s
+Fold 17: Acc=0.9719, F1=0.9719, Time: 0min 0.01s
+Fold 18: Acc=0.9654, F1=0.9654, Time: 0min 0.01s
+Fold 19: Acc=0.9640, F1=0.9640, Time: 0min 0.01s
+Fold 20: Acc=0.9518, F1=0.9517, Time: 0min 0.01s
+Fold 21: Acc=0.9676, F1=0.9676, Time: 0min 0.01s
+Fold 22: Acc=0.9568, F1=0.9568, Time: 0min 0.01s
+Fold 23: Acc=0.9654, F1=0.9654, Time: 0min 0.01s
+Fold 24: Acc=0.9590, F1=0.9590, Time: 0min 0.01s
+Fold 25: Acc=0.9676, F1=0.9676, Time: 0min 0.01s
+Fold 26: Acc=0.9705, F1=0.9705, Time: 0min 0.01s
+Fold 27: Acc=0.9539, F1=0.9539, Time: 0min 0.01s
+Fold 28: Acc=0.9604, F1=0.9605, Time: 0min 0.01s
+Fold 29: Acc=0.9510, F1=0.9510, Time: 0min 0.01s
+Fold 30: Acc=0.9719, F1=0.9719, Time: 0min 0.01s
+
+=== RESUMO 30-FOLDS ===
+Accuracy: 0.9626 ± 0.0060
+F1-Score: 0.9626 ± 0.0060
+Melhor Acc: 0.9770 | Pior Acc: 0.9510
+Tempo de Avaliação: 0min 0.37s
+
+=== MÉTRICAS GLOBAIS ===
+              precision    recall  f1-score   support
+
+           0     0.9526    0.9531    0.9528     16494
+           1     0.9692    0.9689    0.9691     25176
+
+    accuracy                         0.9626     41670
+   macro avg     0.9609    0.9610    0.9609     41670
+weighted avg     0.9626    0.9626    0.9626     41670
+
+
+==================================================
+COMPARAÇÃO COM BASELINE
+==================================================
+
+==================================================
+AVALIAÇÃO COM PARÂMETROS OTIMIZADOS
+==================================================
+Fold 01: Acc=0.9546, F1=0.9546, Time: 0min 0.01s
+Fold 02: Acc=0.9554, F1=0.9554, Time: 0min 0.01s
+Fold 03: Acc=0.9525, F1=0.9525, Time: 0min 0.01s
+Fold 04: Acc=0.9604, F1=0.9604, Time: 0min 0.01s
+Fold 05: Acc=0.9676, F1=0.9676, Time: 0min 0.01s
+Fold 06: Acc=0.9446, F1=0.9447, Time: 0min 0.01s
+Fold 07: Acc=0.9611, F1=0.9611, Time: 0min 0.01s
+Fold 08: Acc=0.9554, F1=0.9554, Time: 0min 0.01s
+Fold 09: Acc=0.9640, F1=0.9640, Time: 0min 0.01s
+Fold 10: Acc=0.9597, F1=0.9597, Time: 0min 0.01s
+Fold 11: Acc=0.9503, F1=0.9503, Time: 0min 0.01s
+Fold 12: Acc=0.9568, F1=0.9567, Time: 0min 0.01s
+Fold 13: Acc=0.9496, F1=0.9495, Time: 0min 0.01s
+Fold 14: Acc=0.9626, F1=0.9625, Time: 0min 0.01s
+Fold 15: Acc=0.9539, F1=0.9539, Time: 0min 0.01s
+Fold 16: Acc=0.9525, F1=0.9525, Time: 0min 0.01s
+Fold 17: Acc=0.9611, F1=0.9611, Time: 0min 0.01s
+Fold 18: Acc=0.9554, F1=0.9552, Time: 0min 0.01s
+Fold 19: Acc=0.9669, F1=0.9669, Time: 0min 0.01s
+Fold 20: Acc=0.9453, F1=0.9453, Time: 0min 0.01s
+Fold 21: Acc=0.9546, F1=0.9546, Time: 0min 0.01s
+Fold 22: Acc=0.9597, F1=0.9596, Time: 0min 0.01s
+Fold 23: Acc=0.9582, F1=0.9582, Time: 0min 0.01s
+Fold 24: Acc=0.9626, F1=0.9626, Time: 0min 0.01s
+Fold 25: Acc=0.9633, F1=0.9633, Time: 0min 0.01s
+Fold 26: Acc=0.9683, F1=0.9683, Time: 0min 0.01s
+Fold 27: Acc=0.9590, F1=0.9590, Time: 0min 0.01s
+Fold 28: Acc=0.9532, F1=0.9533, Time: 0min 0.01s
+Fold 29: Acc=0.9546, F1=0.9546, Time: 0min 0.01s
+Fold 30: Acc=0.9676, F1=0.9676, Time: 0min 0.01s
+
+=== RESUMO 30-FOLDS ===
+Accuracy: 0.9577 ± 0.0061
+F1-Score: 0.9577 ± 0.0061
+Melhor Acc: 0.9683 | Pior Acc: 0.9446
+Tempo de Avaliação: 0min 0.39s
+
+=== MÉTRICAS GLOBAIS ===
+              precision    recall  f1-score   support
+
+           0     0.9476    0.9454    0.9465     16494
+           1     0.9643    0.9658    0.9650     25176
+
+    accuracy                         0.9577     41670
+   macro avg     0.9559    0.9556    0.9558     41670
+weighted avg     0.9577    0.9577    0.9577     41670
+
+
+Melhoria do F1-Score: 0.52%
+Tempo Total de Execução: 0min 6.38s
