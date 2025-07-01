@@ -1,0 +1,10 @@
+Dataset shape: (6945, 11)
+Class distribution: [2749 4196] (proporção: [0.39582433 0.60417567])
+
+==================================================
+HYPERPARAMETER TUNING COM CROSS-VALIDATION
+==================================================
+Fold 01: Acc=0.9474, F1=0.9477, Best params: {'activation': 'tanh', 'alpha': 0.001, 'hidden_layer_sizes': (75, 75), 'learning_rate_init': 0.01, 'solver': 'adam'}
+Tempo: 0min 45.94s
+Fold 02: Acc=0.9460, F1=0.9459, Best params: {'activation': 'logistic', 'alpha': 0.001, 'hidden_layer_sizes': 200, 'learning_rate_init': 0.01, 'solver': 'adam'}
+Tempo: 0min 52.59s
