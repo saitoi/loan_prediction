@@ -42,35 +42,26 @@ f1_scores_nn = [
     0.9627, 0.9590, 0.9446, 0.9577, 0.9599, 0.9634, 0.9569, 0.9627, 0.9518, 0.9626
 ]
 
-# stat_acc, p_acc = ttest_rel(accuracies_tree, accuracies_svm)
-# stat_f1, p_f1 = ttest_rel(f1_scores_tree, f1_scores_svm)
-
-# nn_stat_acc, nn_p_acc = ttest_rel(accuracies_nn, accuracies_svm)
-# nn_stat_f1, nn_p_f1 = ttest_rel(f1_scores_nn, f1_scores_svm)
-
-# an_stat_acc, an_p_acc = ttest_rel(accuracies_tree, accuracies_nn)
-# an_stat_f1, an_p_f1 = ttest_rel(f1_scores_tree, f1_scores_nn)
-
-# print("Comparação SVM x Árvore")
-
-# print(f"Accuracy paired t-test: t-statistic = {stat_acc:.4f}, p-value = {p_acc:.4f}")
-# print(f"F1-score paired t-test: t-statistic = {stat_f1:.4f}, p-value = {p_f1:.4f}")
-
-# print("Comparação SVM x NN")
-
-# print(f"Accuracy paired t-test: t-statistic = {nn_stat_acc:.4f}, p-value = {nn_p_acc:.4f}")
-# print(f"F1-score paired t-test: t-statistic = {nn_stat_f1:.4f}, p-value = {nn_p_f1:.4f}")
-
-# print("Comparação Árvore x NN")
-
-# print(f"Accuracy paired t-test: t-statistic = {an_stat_acc:.4f}, p-value = {an_p_acc:.4f}")
-# print(f"F1-score paired t-test: t-statistic = {an_stat_f1:.4f}, p-value = {an_p_f1:.4f}")
-
 from scipy.stats import friedmanchisquare
 
 stat_acc, p_acc = friedmanchisquare(accuracies_tree, accuracies_svm, accuracies_nn)
 
 stat_f1, p_f1 = friedmanchisquare(f1_scores_tree, f1_scores_svm, f1_scores_nn)
 
-print("Friedman test (Accuracy): χ² = {:.4f}, p = {:.4f}".format(stat_acc, p_acc))
-print("Friedman test (F1-score): χ² = {:.4f}, p = {:.4f}".format(stat_f1, p_f1))
+print("Friedman test (Accuracy): chi quadrado = {:.4f}, p = {:.4f}".format(stat_acc, p_acc))
+print("Friedman test (F1-score): chi quadrado = {:.4f}, p = {:.4f}".format(stat_f1, p_f1))
+
+import numpy as np
+import scikit_posthocs as sp
+
+# organiza os dados em colunas
+data_acc = np.vstack([accuracies_tree, accuracies_svm, accuracies_nn]).T
+data_f1_scores = np.vstack([f1_scores_tree, f1_scores_svm, f1_scores_nn]).T
+
+# matriz de p-values do teste de Nemenyi
+p_matrix = sp.posthoc_nemenyi_friedman(data_acc)
+p_matrix_a = sp.posthoc_nemenyi_friedman(data_f1_scores)
+
+print(p_matrix)
+print(p_matrix_a)
+
