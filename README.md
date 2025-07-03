@@ -141,7 +141,7 @@ Siga os passos abaixo para configurar o projeto localmente.
    - Balanceamento automático de classes
 
 2. **Multi-Layer Perceptron (MLP)**
-   - Arquiteturas: (75,75), (100), (200)
+   - Arquiteturas: (75,75), (100), (50, 50), (100, 50)
    - Solvers: Adam, SGD
    - Funções de ativação: ReLU, Tanh,
    - Alpha: 1e-4, 1e-3, 1e-2
