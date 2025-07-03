@@ -143,7 +143,9 @@ Siga os passos abaixo para configurar o projeto localmente.
 2. **Multi-Layer Perceptron (MLP)**
    - Arquiteturas: (75,75), (100), (200)
    - Solvers: Adam, SGD
-   - Funções de ativação: Logistic, ReLU, Tanh
+   - Funções de ativação: ReLU, Tanh,
+   - Alpha: 1e-4, 1e-3, 1e-2
+   - Taxa de aprendizado inicial: 0.001, 0.01
 
 3. **Decision Tree**
    - Critérios: Gini, Entropy
